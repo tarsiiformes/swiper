@@ -2601,7 +2601,8 @@ See `completion-in-region' for further information."
                  (setq predicate nil)
                  (setq collection comps))
                (unless (derived-mode-p #'emacs-lisp-mode)
-                 (setq collection comps)
+                 ;; See https://github.com/abo-abo/swiper/issues/2705.
+                 ;; (setq collection comps)
                  (setq predicate nil))
                (ivy-read (format "(%s): " str) collection
                          :predicate predicate
